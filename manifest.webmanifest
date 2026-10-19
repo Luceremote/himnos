@@ -1,0 +1,17 @@
+{
+  "name": "Himnos del Recobro",
+  "short_name": "Himnos",
+  "description": "Himnos del Recobro en español, suplemento e inglés, con partituras. Funciona sin internet.",
+  "lang": "es",
+  "start_url": "/himnos/",
+  "scope": "/himnos/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#1a1a2e",
+  "theme_color": "#1a1a2e",
+  "icons": [
+    { "src": "/himnos/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/himnos/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/himnos/icons/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}
