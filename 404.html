@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+    <!-- viewport-fit=cover: la app usa toda la pantalla del iPhone y respeta la muesca con safe-area -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
+    <title>Himnos del Recobro</title>
+    <meta name="description" content="Himnos del Recobro en español, suplemento e inglés, con partituras. Funciona sin internet." />
+    <meta name="theme-color" content="#0d0e13" />
+
+    <!-- PWA: instalar en la pantalla de inicio -->
+    <link rel="manifest" href="/himnos/manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="/himnos/icons/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Himnos" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <!-- The `react-native-web` recommended style reset: https://necolas.github.io/react-native-web/docs/setup/#root-element -->
+    <style id="expo-reset">
+      html,
+      body {
+        height: 100%;
+        /* el color del tema (la app lo cambia al elegir otro tema); así no queda una franja de otro color */
+        background-color: #0d0e13;
+      }
+      /* iPhone con la app en la pantalla de inicio: con la barra superior transparente, el 100% de alto
+         descuenta la barra superior y abajo queda un hueco. 100vh sí cubre toda la pantalla. */
+      @media all and (display-mode: standalone) {
+        html,
+        body,
+        #root {
+          height: 100vh;
+        }
+      }
+      body {
+        overflow: hidden;
+        /* sin rebote ni selección accidental al tocar, como una app */
+        overscroll-behavior: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+      #root {
+        display: flex;
+        height: 100%;
+        flex: 1;
+      }
+    </style>
+  <meta name="theme-color" content="#1a1a2e">
+<link rel="shortcut icon" href="/himnos/favicon.ico" /></head>
+
+  <body>
+    <noscript>Necesitas activar JavaScript para usar esta app.</noscript>
+    <div id="root"></div>
+    <script>
+      // Modo sin internet: sw.js lo genera scripts/build-pwa.js (que también pone la subcarpeta del sitio)
+      if ('serviceWorker' in navigator && location.hostname !== 'localhost') {
+        window.addEventListener('load', function () {
+          navigator.serviceWorker.register('/himnos/sw.js', { scope: '/himnos/' }).catch(function () {});
+        });
+      }
+    </script>
+  <script src="/himnos/_expo/static/js/web/entry-27a67e7377d4a29ef703aad07a580466.js" defer></script>
+</body>
+</html>
